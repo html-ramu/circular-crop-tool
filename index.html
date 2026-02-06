@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Circular Crop Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <h2>⚪ Circular Image Cropper ⚪</h2>
+
+        <div class="control-group">
+            <label for="imageInput" class="btn btn-blue custom-file-upload">
+                📂 Choose Image
+            </label>
+            <input type="file" id="imageInput" accept="image/*">
+        </div>
+        
+        <div class="workspace-container">
+            <div class="workspace" id="workspace">
+                <img id="sourceImage" src="" alt="">
+                <div id="cropBox"></div>
+            </div>
+        </div>
+
+        <div class="control-group hidden" id="resizeControls">
+             <label for="resizeSlider" class="slider-label">🔘 Circle Size:</label>
+             <input type="range" id="resizeSlider" min="50" max="350" value="200">
+             <span id="sliderValue">200px</span>
+        </div>
+
+        <br>
+
+        <button id="cropBtn" class="btn btn-purple">✂️ Crop & Save</button>
+
+        <h3 class="result-heading">✨ Result: ✨</h3>
+        
+        <img id="croppedResult" src="" alt="Result thumbnail">
+        
+        <div class="control-group hidden" id="downloadArea">
+             <a id="downloadLink" class="btn btn-green">⬇️ Download Image</a>
+        </div>
+
+        <div class="footer">
+            <p>Copyright © Circular Image Cropper</p>
+            <p>All rights reserved</p>
+            <p class="developer">Designed & Developed by <strong>html-ramu</strong></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
