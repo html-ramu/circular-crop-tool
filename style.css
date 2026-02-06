@@ -15,7 +15,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     background: var(--bg-gradient);
-    padding: 20px 10px; /* Reduced side padding for mobile */
+    padding: 20px 10px;
     color: var(--text-dark);
     min-height: 100vh;
     box-sizing: border-box;
@@ -24,25 +24,22 @@ body {
 
 .app-container {
     background: var(--container-bg);
-    padding: 25px 15px; /* Comfortable padding */
+    padding: 25px 15px;
     border-radius: 15px;
     display: inline-block;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    
-    /* === FIX: RESPONSIVE WIDTH === */
-    width: 95%; /* Take up most of the screen on mobile */
-    max-width: 450px; /* But don't get too wide on desktop */
-    box-sizing: border-box; /* Ensures padding doesn't increase width */
+    width: 95%; /* Mobile Fix */
+    max-width: 450px;
+    box-sizing: border-box;
     margin-bottom: 20px;
 }
 
 h2 {
     color: var(--primary-purple);
     margin-bottom: 20px;
-    font-size: 1.5rem; /* Slightly smaller for mobile safety */
+    font-size: 1.5rem;
 }
 
-/* === BUTTON STYLES === */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -55,43 +52,24 @@ h2 {
     transition: transform 0.1s ease, box-shadow 0.2s ease;
     text-decoration: none;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    
-    /* Ensure buttons don't overflow on tiny screens */
     max-width: 100%;
     box-sizing: border-box;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-}
-
-.btn:active {
-    transform: translateY(0);
-}
-
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,0.15); }
+.btn:active { transform: translateY(0); }
 .btn-blue { background-color: var(--primary-blue); }
 .btn-purple { background-color: var(--primary-purple); }
 .btn-green { background-color: var(--success-green); }
 
+input[type="file"] { display: none; }
+.custom-file-upload { display: inline-block; cursor: pointer; }
 
-/* === CUSTOM FILE INPUT TRICK === */
-input[type="file"] {
-    display: none;
-}
-.custom-file-upload {
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* === WORKSPACE AREA (The Fix for Overflow) === */
 .workspace-container {
     margin: 20px auto;
     padding: 10px;
     background: #f8f9fa;
     border-radius: 10px;
-    
-    /* Center it and constrain width */
     width: 100%;
     max-width: 400px; 
     box-sizing: border-box;
@@ -99,32 +77,23 @@ input[type="file"] {
 
 .workspace {
     position: relative;
-    display: inline-block; /* Keeps box tight to image */
+    display: inline-block;
     border: 2px solid #e9ecef;
     overflow: hidden;
     background-color: #fff;
-    
-    /* === FIX: Make workspace fluid === */
     max-width: 100%; 
-    vertical-align: top; /* Prevents weird gaps */
+    vertical-align: top;
 }
 
 #sourceImage {
     display: block;
-    
-    /* === FIX: Image resizes with screen === */
-    width: 100%; 
+    width: 100%; /* Mobile Fix */
     height: auto; 
-    
-    /* Optional: Limit max size on huge screens */
     max-width: 100%; 
-    
     opacity: 0; 
     transition: opacity 0.3s ease;
 }
-#sourceImage.loaded {
-    opacity: 1;
-}
+#sourceImage.loaded { opacity: 1; }
 
 #cropBox {
     position: absolute;
@@ -138,51 +107,17 @@ input[type="file"] {
     box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
     cursor: move;
     touch-action: none; 
-    
-    /* Ensure crop box never exceeds image size visually */
     max-width: 100%;
     max-height: 100%;
     box-sizing: border-box;
 }
 
-
-/* === CONTROLS & RESULT === */
-.control-group {
-    margin: 20px 0;
-    width: 100%; /* Ensure controls fit */
-}
-.hidden {
-    display: none !important;
-}
-
-.slider-label {
-    color: var(--primary-blue);
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-/* Make slider responsive */
-#resizeSlider {
-    max-width: 60%;
-    vertical-align: middle;
-}
-
-#sliderValue {
-    display: inline-block;
-    width: 50px;
-    font-weight: bold;
-    color: var(--text-dark);
-    background: #e9ecef;
-    padding: 2px 5px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.result-heading {
-    color: var(--primary-purple);
-    margin-top: 30px;
-}
+.control-group { margin: 20px 0; width: 100%; }
+.hidden { display: none !important; }
+.slider-label { color: var(--primary-blue); font-weight: bold; display: inline-block; margin-bottom: 5px; }
+#resizeSlider { max-width: 60%; vertical-align: middle; }
+#sliderValue { display: inline-block; width: 50px; font-weight: bold; color: var(--text-dark); background: #e9ecef; padding: 2px 5px; border-radius: 5px; font-size: 14px; }
+.result-heading { color: var(--primary-purple); margin-top: 30px; }
 
 #croppedResult {
     margin-top: 10px;
@@ -197,29 +132,16 @@ input[type="file"] {
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     opacity: 0; 
 }
-#croppedResult.has-result {
-     opacity: 1;
-}
+#croppedResult.has-result { opacity: 1; }
+#downloadArea { margin-top: 20px; }
 
-#downloadArea {
-    margin-top: 20px;
-}
-
-/* === FOOTER STYLES === */
 .footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #e9ecef;
-    font-size: 13px; /* Slightly smaller for mobile */
+    font-size: 13px;
     color: var(--text-light);
     line-height: 1.6;
 }
-
-.footer p {
-    margin: 5px 0;
-}
-
-.developer {
-    color: var(--primary-purple);
-    margin-top: 10px !important;
-}
+.footer p { margin: 5px 0; }
+.developer { color: var(--primary-purple); margin-top: 10px !important; }
