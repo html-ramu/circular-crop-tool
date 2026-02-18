@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circular Crop Tool</title>
+    <title>Universal Image Cropper</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="app-container">
-        <h2>⚪ Circular Image Cropper ⚪</h2>
+        <h2>✂️ Universal Image Cropper ✂️</h2>
 
         <div class="control-group">
             <label for="imageInput" class="btn btn-blue custom-file-upload">
                 📂 Choose Image
             </label>
             <input type="file" id="imageInput" accept="image/*">
+        </div>
+
+        <div class="control-group hidden" id="shapeSelector">
+            <label class="radio-label">
+                <input type="radio" name="cropShape" value="circle" checked> ⚪ Circle
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="cropShape" value="rectangle"> ⬜ Rectangle
+            </label>
         </div>
         
         <div class="workspace-container">
@@ -25,11 +34,24 @@
             </div>
         </div>
 
-        <div class="control-group hidden" id="resizeControls">
+        <div class="control-group hidden" id="circleControls">
              <label for="resizeSlider" class="slider-label">🔘 Circle Size:</label>
              <input type="range" id="resizeSlider" min="50" max="350" value="200">
              <span id="sliderValue">200px</span>
         </div>
+
+        <div class="control-group hidden" id="rectControls">
+            <div class="slider-group">
+                <label for="widthSlider" class="slider-label">↔️ Width:</label>
+                <input type="range" id="widthSlider" min="50" max="350" value="200">
+                <span id="widthValue">200px</span>
+            </div>
+            <div class="slider-group">
+                <label for="heightSlider" class="slider-label">↕️ Height:</label>
+                <input type="range" id="heightSlider" min="50" max="350" value="150">
+                <span id="heightValue">150px</span>
+            </div>
+       </div>
 
         <br>
 
@@ -44,8 +66,7 @@
         </div>
 
         <div class="footer">
-            <p>Copyright © Circular Image Cropper</p>
-            <p>All rights reserved</p>
+            <p>Copyright © Universal Image Cropper</p>
             <p class="developer">Designed & Developed by <strong>html-ramu</strong></p>
         </div>
     </div>
